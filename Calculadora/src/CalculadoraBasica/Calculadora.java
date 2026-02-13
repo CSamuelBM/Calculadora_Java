@@ -1,14 +1,14 @@
 package CalculadoraBasica;
 
 import java.awt.*;
-import java.net.*;
 import javax.swing.*;
 
 public class Calculadora extends JFrame{
     
     private JPanel pnContenido;
     private JTextArea tfResultado;
-    private JButton btSuma, btResta, btMultiplicacion, btDivicion, btOperacion, btLimpiar;
+    private JButton btOperacion, btLimpiar;
+    private JButton btSuma, btResta, btMultiplicacion, btDivicion;
     private JButton bt0, bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9;
     
     private String a = "", b = "", c = "";
@@ -36,10 +36,6 @@ public class Calculadora extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         
-        URL url = getClass().getResource("iconoPrincipal.jpg");
-        ImageIcon icon1 = new ImageIcon(url);
-        Image img = icon1.getImage().getScaledInstance(42, 42, Image.SCALE_AREA_AVERAGING);
-        setIconImage(img);
         setTitle("CALCULADORA");
         setForeground(Color.BLACK);
         
@@ -97,6 +93,27 @@ public class Calculadora extends JFrame{
                     c = "";
                     hayResultado = true;
                 break;
+                case "*":
+                    y = Integer.parseInt(a);
+                    x = Integer.parseInt(b);
+                    z = y * x;
+                    a = Integer.toString(z);
+                    tfResultado.setText(a);
+                    b = "";
+                    c = "";
+                    hayResultado = true;
+                break;
+                case "/":
+                    float w, k, v;
+                    w = Float.parseFloat(a);
+                    k = Float.parseFloat(b);
+                    v = w / k;
+                    a = Float.toString(v);
+                    tfResultado.setText(a);
+                    b = "";
+                    c = "";
+                    hayResultado = true;
+                break;
             }
         }
     }
@@ -131,6 +148,24 @@ public class Calculadora extends JFrame{
                 tfResultado.setText(resta);
             }
         } );
+        
+        btMultiplicacion.addActionListener(e -> {
+            if(!tfResultado.getText().isEmpty() && c.isEmpty()){
+                String multiplicacion = tfResultado.getText();
+                multiplicacion += "*";
+                c = "*";
+                tfResultado.setText(multiplicacion);
+            }
+        } );
+        
+        btDivicion.addActionListener(e -> {
+            if(!tfResultado.getText().isEmpty() && c.isEmpty()){
+                String divicion = tfResultado.getText();
+                divicion += "/";
+                c = "/";
+                tfResultado.setText(divicion);
+            }
+        } );
     }
     
     private void resultadoNumeros(){
@@ -160,6 +195,109 @@ public class Calculadora extends JFrame{
             }
         } );
         
+        bt2.addActionListener(e -> {
+            if(!c.isEmpty()){
+                String dos = tfResultado.getText();
+                dos += "2";
+                b += "2";
+                tfResultado.setText(dos);
+            }
+            else if(!hayResultado) {
+                a += "2";
+                tfResultado.setText(a);
+            }
+        } );
+        
+        bt3.addActionListener(e -> {
+            if(!c.isEmpty()){
+                String tres = tfResultado.getText();
+                tres += "3";
+                b += "3";
+                tfResultado.setText(tres);
+            }
+            else if(!hayResultado) {
+                a += "3";
+                tfResultado.setText(a);
+            }
+        } );
+        
+        bt4.addActionListener(e -> {
+            if(!c.isEmpty()){
+                String cuatro = tfResultado.getText();
+                cuatro += "4";
+                b += "4";
+                tfResultado.setText(cuatro);
+            }
+            else if(!hayResultado) {
+                a += "4";
+                tfResultado.setText(a);
+            }
+        } );
+        
+        bt5.addActionListener(e -> {
+            if(!c.isEmpty()){
+                String sinco = tfResultado.getText();
+                sinco += "5";
+                b += "5";
+                tfResultado.setText(sinco);
+            }
+            else if(!hayResultado) {
+                a += "5";
+                tfResultado.setText(a);
+            }
+        } );
+        
+        bt6.addActionListener(e -> {
+            if(!c.isEmpty()){
+                String seis = tfResultado.getText();
+                seis += "6";
+                b += "6";
+                tfResultado.setText(seis);
+            }
+            else if(!hayResultado) {
+                a += "6";
+                tfResultado.setText(a);
+            }
+        } );
+        
+        bt7.addActionListener(e -> {
+            if(!c.isEmpty()){
+                String siete = tfResultado.getText();
+                siete += "7";
+                b += "7";
+                tfResultado.setText(siete);
+            }
+            else if(!hayResultado) {
+                a += "7";
+                tfResultado.setText(a);
+            }
+        } );
+        
+        bt8.addActionListener(e -> {
+            if(!c.isEmpty()){
+                String ocho = tfResultado.getText();
+                ocho += "8";
+                b += "8";
+                tfResultado.setText(ocho);
+            }
+            else if(!hayResultado) {
+                a += "8";
+                tfResultado.setText(a);
+            }
+        } );
+        
+        bt9.addActionListener(e -> {
+            if(!c.isEmpty()){
+                String nueve = tfResultado.getText();
+                nueve += "9";
+                b += "9";
+                tfResultado.setText(nueve);
+            }
+            else if(!hayResultado) {
+                a += "9";
+                tfResultado.setText(a);
+            }
+        } );
     }
 
     private void operadores(GridBagConstraints gbc) {
