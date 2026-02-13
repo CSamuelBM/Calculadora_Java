@@ -4,7 +4,7 @@ import java.awt.*;
 import java.net.*;
 import javax.swing.*;
 
-public class Formulario19 extends JFrame{
+public class Calculadora extends JFrame{
     
     private JPanel pnContenido;
     private JTextArea tfResultado;
@@ -15,7 +15,7 @@ public class Formulario19 extends JFrame{
     private int x, y, z;
     private boolean hayResultado = false;
     
-    public Formulario19(){
+    public Calculadora(){
         componentes();
     }
     
@@ -36,7 +36,7 @@ public class Formulario19 extends JFrame{
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new BorderLayout());
         
-        URL url = getClass().getResource("imgC.jpg");
+        URL url = getClass().getResource("iconoPrincipal.jpg");
         ImageIcon icon1 = new ImageIcon(url);
         Image img = icon1.getImage().getScaledInstance(42, 42, Image.SCALE_AREA_AVERAGING);
         setIconImage(img);
@@ -398,7 +398,7 @@ public class Formulario19 extends JFrame{
     }
     
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> new Formulario19());
+        SwingUtilities.invokeLater(() -> new Calculadora());
     }
     
 }
