@@ -12,7 +12,7 @@ public class Calculadora extends JFrame{
     private JButton bt0, bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9;
     
     private String a = "", b = "", c = "";
-    private int x, y, z;
+    private float x, y, z;
     private boolean hayResultado = false;
     
     public Calculadora(){
@@ -74,30 +74,30 @@ public class Calculadora extends JFrame{
         if(!a.isEmpty() && !b.isEmpty()){
             switch(c){
                 case "+":
-                    y = Integer.parseInt(a);
-                    x = Integer.parseInt(b);
+                    y = Float.parseFloat(a);
+                    x = Float.parseFloat(b);
                     z = y + x;
-                    a = Integer.toString(z);
+                    a = Float.toString(z);
                     tfResultado.setText(a);
                     b = "";
                     c = "";
                     hayResultado = true;
                 break;
                 case "-":
-                    y = Integer.parseInt(a);
-                    x = Integer.parseInt(b);
+                    y = Float.parseFloat(a);
+                    x = Float.parseFloat(b);
                     z = y - x;
-                    a = Integer.toString(z);
+                    a = Float.toString(z);
                     tfResultado.setText(a);
                     b = "";
                     c = "";
                     hayResultado = true;
                 break;
                 case "*":
-                    y = Integer.parseInt(a);
-                    x = Integer.parseInt(b);
+                    y = Float.parseFloat(a);
+                    x = Float.parseFloat(b);
                     z = y * x;
-                    a = Integer.toString(z);
+                    a = Float.toString(z);
                     tfResultado.setText(a);
                     b = "";
                     c = "";
